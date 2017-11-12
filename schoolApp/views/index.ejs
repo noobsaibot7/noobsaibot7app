@@ -1,0 +1,46 @@
+<% include ./partials/header %>
+    
+
+    <div class="ui main text container">
+        <div class="ui huge header"> Students Registry page </div>
+        <div class= "ui top attached segment">
+        <div class="ui divided items">
+            <% studs.forEach(function(stud){ %>
+                <div class="item">
+                    <div class="image">
+                            <img src="<%= stud.image %>"></img>
+                    </div>
+                    <div class="content">
+                            <a class="header" href="/students/<%= stud._id%>"> <%= stud.name %></a>
+                            <div class="meta">
+                                <span> <%= stud.created.toDateString() %> </span>
+                            </div>
+                            <div class="meta">
+                                    <span> <%= stud.created.toLocaleTimeString() %> </span>
+                            </div>
+                            <div class="description">
+                                    <p> <%= stud.bio.substring(0,100) %>....</p>
+                            </div>
+                            <div class="extra">
+                                    <a class="ui floated basic violet button" href="/students/<%= stud._id %>"> Read more
+                                        <i class="right chevron icon"></i>
+                                    </a>
+                                    
+                            </div>
+
+                    </div>
+            
+
+                </div>
+
+             <% }); %>
+
+        </div>
+    </div> 
+
+    </div>
+
+    
+
+
+    <% include ./partials/footer %>
